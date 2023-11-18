@@ -92,3 +92,4 @@ package com.GabriellePintanel.dslist.dto;
 			this.longDescription = longDescription;
 		}
 	}
+

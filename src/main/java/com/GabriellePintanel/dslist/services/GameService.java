@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.GabriellePintanel.dslist.dto.GameDTO;
 import com.GabriellePintanel.dslist.dto.GameMinDTO;
 import com.GabriellePintanel.dslist.entities.Game;
-//import com.GabriellePintanel.dslist.projections.GameMinProjection;
+import com.GabriellePintanel.dslist.projections.GameMinProjection;
 import com.GabriellePintanel.dslist.repositories.GameRepository;
 
 @Service
@@ -31,9 +31,9 @@ public class GameService {
 		return result.stream().map(GameMinDTO::new).toList();
 	}
 	
-	//@Transactional(readOnly = true)
-	//public List<GameMinDTO> findByGameList(Long listId) {
-		//List<GameMinProjection> games = gameRepository.searchByList(listId);
-		//return games.stream().map(GameMinDTO::new).toList();
-	//}
+	@Transactional(readOnly = true)
+	public List<GameMinDTO> findByGameList(Long listId) {
+		List<GameMinProjection> games = gameRepository.searchByList(listId);
+		return games.stream().map(GameMinDTO::new).toList();
+	}
 }
